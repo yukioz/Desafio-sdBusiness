@@ -1,1 +1,31 @@
-<p>home works!</p>
+<mat-card>
+    <mat-card-title>
+        Todos os Cãozinhos
+    </mat-card-title>
+    <div class="autocompleteDiv">
+        <H3 bold>Raça do Cãozinho</H3>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput placeholder="Selecione uma raça" [matAutocomplete]="auto" name="joke" #jokeField="ngModel" [(ngModel)]="text" (ngModelChange)="filterDog()">
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let dog of filteredDogs" [value]="dog" (onSelectionChange)="updateMySelection($event)">
+                {{dog.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </div>
+    <div *ngIf="selectedDog" class="cardDiv">
+        <img src={{dogImageurl}} alt="dog photo" style="width:20%;height:20%;">
+        <p>
+            Nome: {{dogName}}
+        </p>
+        <p>
+            Altura: {{dogHeight}}
+        </p>
+        <p>
+            Origem: {{dogOrigin != '' ? dogOrigin : 'Sem origem'}}
+        </p>
+        <p>
+            Temperamento: {{dogTemperament}}
+        </p>
+    </div>
+</mat-card>
