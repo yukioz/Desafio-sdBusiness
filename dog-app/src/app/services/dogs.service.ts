@@ -24,12 +24,17 @@ export class DogsService {
   }
 
   getDogs(): Observable<any[]> {
-    console.log("passei");
+    // console.log("passei");
     return this.http.get<any[]>(this.baseUrl);
   }
 
-  getDogsByBreed(breed: string): Observable<any[]> {
-    return this.http.get<any[]>(this.baseUrl + `search?q=${breed}`);
+  getDogByBreed(breed: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + `/search?q=${breed}`);
+  }
+
+  getDogImage(id: string): Observable<any> {
+    console.log("https://api.thedogapi.com/v1/images/" + id);
+    return this.http.get<any>("https://api.thedogapi.com/v1/images/" + id);
   }
 
 }

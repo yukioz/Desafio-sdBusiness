@@ -2,4 +2,20 @@
     <mat-card-title>
         Pinscher
     </mat-card-title>
+    <div class="cardDiv" *ngFor="let dog of dogInfo">
+        <img *ngIf="dog.reference_image_id != null" [src]=image(dog.reference_image_id) alt="dog photo" style="width:20%;height:20%;">
+        <img *ngIf="dog.reference_image_id == null" src="https://static.obrazul.com.br/media/produtos/7898272158016-0-96328.png" alt="no photo" style="width:20%;height:20%;">
+        <p>
+            Nome: {{dog.name}}
+        </p>
+        <p>
+            Altura: {{dog.height.metric}}
+        </p>
+        <p>
+            Origem: {{dog.origin != null ? dog.origin : 'Sem origem'}}
+        </p>
+        <p>
+            Temperamento: {{dog.temperament}}
+        </p>
+    </div>
 </mat-card>

@@ -1,3 +1,5 @@
+import { Dog } from './../../models/dog';
+import { DogsService } from './../../services/dogs.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PudleComponent implements OnInit {
 
-  constructor() { }
+  dogInfo: any[] = [];
+
+  constructor(
+    private dogService: DogsService,
+  ) { }
 
   ngOnInit(): void {
+    this.dogService.getDogByBreed('pudle').subscribe((response: any) => {
+      this.dogInfo = response;
+      // console.log(this.dogInfo)
+    });
+  }
+
+  image(id: string): string {
+    return `https://cdn2.thedogapi.com/images/${id}_1280.jpg`
   }
 
 }

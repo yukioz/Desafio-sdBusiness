@@ -40,14 +40,14 @@ export class HomeComponent implements OnInit {
   }
 
   updateMySelection(event) {
-    console.log(event.source.value, "eventooo");
+    // console.log(event.source.value, "eventooo");
     this.dogImageurl = event.source.value.image?.url;
     this.dogName = event.source.value.name;
     this.dogHeight = event.source.value.height?.metric;
     this.dogOrigin = event.source.value.origin;
     this.dogTemperament = event.source.value.temperament;
     this.selectedDog = event.source.value;
-    console.log(this.selectedDog, "dog name");
+    // console.log(this.selectedDog, "dog name");
   }
 
 }

@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 70vh;
+    scroll-behavior: smooth;
+    background-color: lightgrey;
+    border-radius: 5px;
+    justify-content: space-around;
+}
+
+.autocompleteDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.example-full-width {
+    width: 50%;
+}
+
+.cardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
